@@ -14,13 +14,6 @@ Auth:
   AccessSecret: uOvKLmVfztaXGpNYd4Z0I1SiT7MweJhl
   AccessExpire: 86400
 
-# 对接order RPC
-OrderRpc:
-  Etcd:
-    Hosts:
-    - etcd:2379
-    Key: order.rpc
-
 Prometheus:
   Host: 0.0.0.0
   Port: 9082
@@ -31,3 +24,17 @@ Telemetry:
   Endpoint: http://jaeger:14268/api/traces
   Sampler: 1.0
   Batcher: jaeger
+
+# 对接order RPC
+# DTM事务：创建订单时减少产品库存
+OrderRpc:
+  Etcd:
+    Hosts:
+    - etcd:2379
+    Key: order.rpc
+
+ProductRpc:
+  Etcd:
+    Hosts:
+    - etcd:2379
+    Key: product.rpc

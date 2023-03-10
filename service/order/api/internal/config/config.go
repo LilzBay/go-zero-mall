@@ -7,9 +7,12 @@ import (
 
 type Config struct {
 	rest.RestConf
+
 	Auth struct {
 		AccessSecret string
 		AccessExpire int64
 	}
-	OrderRpc zrpc.RpcClientConf
+
+	OrderRpc   zrpc.RpcClientConf
+	ProductRpc zrpc.RpcClientConf // 用于DTM事务
 }
